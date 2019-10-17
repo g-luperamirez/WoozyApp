@@ -1,15 +1,97 @@
 body {
-  font-family: "Archivo Black", sans-serif;
-  color: aliceblue;
-  background-color: #0d3b66;
-  padding: 4px;
+  font-family: "Montserrat", sans-serif;
+  background-color: black;
+  color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
-.mainContainer {
+
+.topContainer {
+  /* Flexing */
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
+  /* Keep content in the top of the page */
+  position: sticky;
+  top: 0;
+  /* Style */
+  background-color: rgb(255, 255, 255);
+  color: black;
+  height: 200px;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  /* Style input box and button */
+  border: 0.5px solid rgb(213, 213, 213);
+  border-radius: 15px;
+  box-shadow: 3px 3px rgb(213, 213, 213);
 }
 .searchBoxInput {
-  width: 22em;
-  height: auto;
+  width: 25em;
+  height: 2.5em;
+  background-color: transparent; /* Inputbox color*/
+  border: none;
+}
+input {
+  color: black;
+  outline: none;
+  padding: 15px;
+}
+.clickSearch,
+i {
+  color: black; /* Seach Icon color*/
+  background-color: transparent; /* Icon background color */
+  border: 0px; /* Icon border */
+  align-items: center;
+  justify-content: center;
+}
+.showMeTheData {
+  color: black;
+  background-color: rgba(255, 255, 255, 0.735);
+  margin: 1% 8% 8% 8%;
+  padding: 2%; /* NEED TO FIX PADDING - I DO NOT WANT IT TO SHOW UNLESS I HAVE TEXT SHOWING */
+}
+h3 {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+p {
+  font-size: 12px;
+}
+
+h1 {
+  font-size: 70px;
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
+}
+.fakeSlogan {
+  font-size: 11px;
+  /* font-weight: 100; */
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+}
+.socialMedia {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 40px;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  padding-left: 40%;
+  padding-right: 40%;
+  margin: 0;
+  /* Style */
+  background: black;
+  list-style: none;
 }
