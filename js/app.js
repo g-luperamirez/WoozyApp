@@ -23,8 +23,10 @@ $(() => {
         console.log(unpackDrinkDetails);
         // END URL PUSH ---------------------
         //DRINK NAME
-        const drinkName = $("<h3>")
-          .text(apiData.drinks[i].strDrink)
+        const drinkName = $("<h3>").text(apiData.drinks[i].strDrink);
+        drinkName
+          .css("text-transform", "uppercase")
+          .css("text-align", "center")
           .appendTo(".showMeTheData");
         console.log(drinkName);
 
@@ -36,17 +38,39 @@ $(() => {
             properties.includes("strIngredient") &&
             unpackDrinkDetails.drinks[0][properties]
           ) {
-            ingredients.push(unpackDrinkDetails.drinks[0][properties]);
+            ingredients.push(unpackDrinkDetails.drinks[0][properties] + " ");
           }
         }
         // console.log(ingredients);
+        const ingredientsTitle = $("<p>")
+          .text("INGREDIENTS: ")
+          .css("text-align", "left")
+          .css("font-weight", "600")
+          .appendTo(drinkName);
+
         const ingredientList = $("<p>").text(ingredients);
+        ingredientList.css("text-align", "left");
         ingredientList.appendTo(drinkName);
 
+        //GROUP DRINK PORTIONS
+
         //DRINK INSTRUCTIONS
+        const instructionsTitle = $("<p>")
+          .text("Instructions: ")
+          .css("text-align", "left")
+          .css("font-weight", "600")
+          .appendTo(drinkName);
+
         const drinkInstructions = $("<p>")
           .text(unpackDrinkDetails.drinks[0].strInstructions)
+          .css("text-align", "left")
           .appendTo(drinkName);
+
+        const lineBreak = $("<p>").text("__________________");
+        lineBreak
+          .css("text-align", "center")
+          .css("font-weight", "600")
+          .appendTo(drinkInstructions);
       });
       //
     }
