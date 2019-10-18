@@ -21,7 +21,7 @@ $(() => {
       };
       $.ajax(pushIdToURL).done(function(unpackDrinkDetails) {
         console.log(unpackDrinkDetails);
-        // END URL PUSH ---------------------
+        //END URL PUSH ---------------------
         //DRINK NAME
         const drinkName = $("<h3>").text(apiData.drinks[i].strDrink);
         drinkName
@@ -52,7 +52,22 @@ $(() => {
         ingredientList.css("text-align", "left");
         ingredientList.appendTo(drinkName);
 
-        //GROUP DRINK PORTIONS
+        //GROUP MEASUREMENTS
+        const measurements = [];
+
+        for (properties in unpackDrinkDetails.drinks[0]) {
+          if (
+            properties.includes("strMeasure") &&
+            unpackDrinkDetails.drinks[0][properties]
+          ) {
+            measurements.push(unpackDrinkDetails.drinks[0][properties]);
+          }
+        }
+        //CREATE UL
+        const measurementsUL = $("<ul>").appendTo(drinkName);
+        //CREATED LI
+        const measurementsLI = $("<li>").text(measurements);
+        measurementsLI.appendTo(measurementsUL);
 
         //DRINK INSTRUCTIONS
         const instructionsTitle = $("<p>")
@@ -97,5 +112,8 @@ $(() => {
       }
     };
     $.ajax(drinksAPI).then(unpackMyAPI);
+    //THE 2 LINE BELOW CLEAR THE CONTENT BEFORE PLACING MY NEW REQUEST
+    $(".showMeTheData").html("");
+    $(".showMeTheData").html(html);
   });
 });
