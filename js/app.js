@@ -4,9 +4,9 @@ $(() => {
     // console.log("API sent", apiData.drinks);
 
     for (let i = 0; i < apiData.drinks.length; i++) {
-      //DRINK ID (NO SHOW) - USED TO PULL INGRIDIENTS
+      //DRINK ID (NO SHOW) - USED TO PULL INGREDIENTS
       const drinkId = apiData.drinks[i].idDrink;
-      //   console.log(drinkId);
+      console.log(drinkId);
 
       //PUSH ID TO FULL DRINK DETAILS URL ---
       const pushIdToURL = {
@@ -20,9 +20,10 @@ $(() => {
         }
       };
       $.ajax(pushIdToURL).done(function(unpackDrinkDetails) {
-        console.log(unpackDrinkDetails);
-        //END URL PUSH ---------------------
-        //DRINK NAME
+        // console.log(unpackDrinkDetails);
+        //END OF URL PUSH ----------------------
+
+        //SHOW ME THE DRINK NAME
         const drinkName = $("<h3>").text(apiData.drinks[i].strDrink);
         drinkName
           .css("text-transform", "uppercase")
@@ -37,13 +38,12 @@ $(() => {
           .css("font-weight", "600")
           .appendTo(drinkName);
 
-        //CODE FOR CREATING A LIST -----------------------------------------
+        //CODE FOR CREATING A LIST ----------
         //1. CREATE UL
         const myUL = $("<ul>").appendTo(drinkName);
 
-        //2. CREATE AN ARRAY OF GROUP MEASUREMENTS
+        //2. CREATE AN ARRAY OF MEASUREMENTS & PUSH ITEMS INTO IT (ITEMS COME AS SINGLE STRING ITEMS)
         const measurements = [];
-
         for (properties in unpackDrinkDetails.drinks[0]) {
           if (
             properties.includes("strMeasure") &&
@@ -53,11 +53,7 @@ $(() => {
           }
         }
 
-        //3. CREATED LI FOR MEASUREMENTS
-        const measurementsLI = $("<li>").text(measurements);
-        measurementsLI.appendTo(myUL);
-
-        //4. CREATE AN ARRAY OF GROUP INGREDIENTS
+        //3. CREATE AN ARRAY OF INGREDIENTS & PUSH ITEMS INTO IT (ITEMS COME AS SINGLE STRING ITEMS)
         const ingredients = [];
 
         for (properties in unpackDrinkDetails.drinks[0]) {
@@ -65,16 +61,23 @@ $(() => {
             properties.includes("strIngredient") &&
             unpackDrinkDetails.drinks[0][properties]
           ) {
-            ingredients.push(unpackDrinkDetails.drinks[0][properties] + " ");
+            ingredients.push(unpackDrinkDetails.drinks[0][properties]);
           }
         }
-        // console.log(ingredients);
+        //COMBINE INGREDIENTS AND MEASUREMTS ARRAYS
+        const mixDrink = [];
+        for (let i = 0; i <= ingredients.length - 1; i++) {
+          if (mixDrink !== undefined) {
+            const mixDrink = ingredients[i] + " " + measurements[i];
 
-        //5. CREATED LI FOR INGREDIENTS
-        const ingredientList = $("<li>").text(ingredients);
-        ingredientList.css("text-align", "left");
-        ingredientList.appendTo(drinkName);
-        //-----------------------------------------------------------------
+            //APPEND THE COMBINED ARRAY TO DRINK NAME
+            const ingredientList = $("<li>").text(mixDrink);
+            ingredientList.css("text-align", "left");
+            ingredientList.appendTo(drinkName);
+          }
+        }
+        //MY LIST GIVE ME "UNDEFINED"!!**
+        //END OF LIST CREATION --------------
         //DRINK INSTRUCTIONS TITLE
         const instructionsTitle = $("<p>")
           .text("Instructions: ")
@@ -105,7 +108,7 @@ $(() => {
     const searchBoxInput = $(".searchBoxInput");
     const searchBoxVal = searchBoxInput.val();
     const filter = `filter.php?i=${searchBoxVal}`;
-    console.log(searchBoxVal);
+    // console.log(searchBoxVal);
 
     //AJAX CONNECTION
     const drinksAPI = {
@@ -121,6 +124,5 @@ $(() => {
     $.ajax(drinksAPI).then(unpackMyAPI);
     //THE 2 LINE BELOW CLEAR THE CONTENT BEFORE PLACING MY NEW REQUEST
     $(".showMeTheData").html("");
-    $(".showMeTheData").html(html);
   });
 });

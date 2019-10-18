@@ -55,13 +55,15 @@ i {
   color: black;
   background-color: rgba(255, 255, 255, 0.735);
   margin: 1% 8% 8% 8%;
-  padding: 2%; /* NEED TO FIX PADDING - I DO NOT WANT IT TO SHOW UNLESS I HAVE TEXT SHOWING */
+  padding: 2%; /* NEED TO FIX PADDING - I DO NOT WANT IT TO SHOW UNLESS I AM APPENDING TEXT */
 }
 h3 {
   font-size: 15px;
 }
 
-p {
+p,
+ul,
+li {
   font-size: 10px;
 }
 
