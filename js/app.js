@@ -30,7 +30,34 @@ $(() => {
           .appendTo(".showMeTheData");
         console.log(drinkName);
 
-        //GROUP INGREDIENTS
+        //DRINK INGREDIENTS TITLE
+        const ingredientsTitle = $("<p>")
+          .text("INGREDIENTS: ")
+          .css("text-align", "left")
+          .css("font-weight", "600")
+          .appendTo(drinkName);
+
+        //CODE FOR CREATING A LIST -----------------------------------------
+        //1. CREATE UL
+        const myUL = $("<ul>").appendTo(drinkName);
+
+        //2. CREATE AN ARRAY OF GROUP MEASUREMENTS
+        const measurements = [];
+
+        for (properties in unpackDrinkDetails.drinks[0]) {
+          if (
+            properties.includes("strMeasure") &&
+            unpackDrinkDetails.drinks[0][properties]
+          ) {
+            measurements.push(unpackDrinkDetails.drinks[0][properties]);
+          }
+        }
+
+        //3. CREATED LI FOR MEASUREMENTS
+        const measurementsLI = $("<li>").text(measurements);
+        measurementsLI.appendTo(myUL);
+
+        //4. CREATE AN ARRAY OF GROUP INGREDIENTS
         const ingredients = [];
 
         for (properties in unpackDrinkDetails.drinks[0]) {
@@ -42,45 +69,25 @@ $(() => {
           }
         }
         // console.log(ingredients);
-        const ingredientsTitle = $("<p>")
-          .text("INGREDIENTS: ")
-          .css("text-align", "left")
-          .css("font-weight", "600")
-          .appendTo(drinkName);
 
-        const ingredientList = $("<p>").text(ingredients);
+        //5. CREATED LI FOR INGREDIENTS
+        const ingredientList = $("<li>").text(ingredients);
         ingredientList.css("text-align", "left");
         ingredientList.appendTo(drinkName);
-
-        //GROUP MEASUREMENTS
-        const measurements = [];
-
-        for (properties in unpackDrinkDetails.drinks[0]) {
-          if (
-            properties.includes("strMeasure") &&
-            unpackDrinkDetails.drinks[0][properties]
-          ) {
-            measurements.push(unpackDrinkDetails.drinks[0][properties]);
-          }
-        }
-        //CREATE UL
-        const measurementsUL = $("<ul>").appendTo(drinkName);
-        //CREATED LI
-        const measurementsLI = $("<li>").text(measurements);
-        measurementsLI.appendTo(measurementsUL);
-
-        //DRINK INSTRUCTIONS
+        //-----------------------------------------------------------------
+        //DRINK INSTRUCTIONS TITLE
         const instructionsTitle = $("<p>")
           .text("Instructions: ")
           .css("text-align", "left")
           .css("font-weight", "600")
           .appendTo(drinkName);
-
+        //DRINK INSTRUCTIONS CONTENT
         const drinkInstructions = $("<p>")
           .text(unpackDrinkDetails.drinks[0].strInstructions)
           .css("text-align", "left")
           .appendTo(drinkName);
 
+        //LINE BREAK MAINLY FOR ASTETICS
         const lineBreak = $("<p>").text("__________________");
         lineBreak
           .css("text-align", "center")
