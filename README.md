@@ -6,7 +6,7 @@ Woozy offers a wide variety of cocktail drink recipes at the touch of your finge
 
 ## Application Programming Interface (API)
 The Cocktail DB via rapidapi.com
-[I'm an inline-style link](https://www.google.com)
+[rapidapi.com](https://rapidapi.com/theapiguy/api/the-cocktail-db/endpoints)
 
 
 ## Authors
