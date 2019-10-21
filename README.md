@@ -3,5 +3,5 @@ Simple cocktail search engine.
 
 ## Description
 
-### Authors
+## Authors
 ##### Guadalupe Ramirez
