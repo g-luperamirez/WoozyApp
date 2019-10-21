@@ -53,12 +53,17 @@ i {
 }
 .showMeTheData {
   color: black;
-  background-color: rgba(255, 255, 255, 0.735);
+  background-color: rgba(255, 255, 255, 0.742);
   margin: 1% 8% 8% 8%;
-  padding: 2%; /* NEED TO FIX PADDING - I DO NOT WANT IT TO SHOW UNLESS I AM APPENDING TEXT */
 }
 h3 {
   font-size: 15px;
+  border-bottom: 1px solid black;
+}
+
+.drinkClass:hover {
+  cursor: pointer;
+  background-color: red;
 }
 
 p,
@@ -95,4 +100,8 @@ h1 {
   /* Style */
   background: black;
   list-style: none;
+}
+
+.accordionData {
+  display: none;
 }

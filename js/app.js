@@ -23,24 +23,35 @@ $(() => {
         // console.log(unpackDrinkDetails);
         //END OF URL PUSH ----------------------
 
+        //STYLE SHOW ME THE DATA DIV
+        $(".showMeTheData").css("padding", "2%");
+
+        //NEW DIV TO APPEND INGREDIENTS AND INSTRUCTIONS
+        const newDiv = $("<div>").addClass("accordionData");
+
         //SHOW ME THE DRINK NAME
         const drinkName = $("<h3>").text(apiData.drinks[i].strDrink);
         drinkName
+          .attr("id", "drinkName")
+          .addClass("drinkClass")
           .css("text-transform", "uppercase")
           .css("text-align", "center")
           .appendTo(".showMeTheData");
         console.log(drinkName);
+
+        //APENDING SO NEW DIV COULD BE THE NEXT DATA TO THE H3
+        $(".showMeTheData").append(newDiv);
 
         //DRINK INGREDIENTS TITLE
         const ingredientsTitle = $("<p>")
           .text("INGREDIENTS: ")
           .css("text-align", "left")
           .css("font-weight", "600")
-          .appendTo(drinkName);
+          .appendTo(newDiv);
 
         //CODE FOR CREATING A LIST ----------
         //1. CREATE UL
-        const myUL = $("<ul>").appendTo(drinkName);
+        const myUL = $("<ul>").appendTo(newDiv);
 
         //2. CREATE AN ARRAY OF MEASUREMENTS & PUSH ITEMS INTO IT (ITEMS COME AS SINGLE STRING ITEMS)
         const measurements = [];
@@ -52,7 +63,6 @@ $(() => {
             measurements.push(unpackDrinkDetails.drinks[0][properties]);
           }
         }
-
         //3. CREATE AN ARRAY OF INGREDIENTS & PUSH ITEMS INTO IT (ITEMS COME AS SINGLE STRING ITEMS)
         const ingredients = [];
 
@@ -64,42 +74,47 @@ $(() => {
             ingredients.push(unpackDrinkDetails.drinks[0][properties]);
           }
         }
+
         //COMBINE INGREDIENTS AND MEASUREMTS ARRAYS
+        //WIP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         const mixDrink = [];
-        for (let i = 0; i <= ingredients.length - 1; i++) {
-          if (mixDrink !== undefined) {
-            const mixDrink = ingredients[i] + " " + measurements[i];
+        const length = Math.max(ingredients.length, measurements.length);
+        for (let i = 0; i <= length; i++) {
+          if ((measurements[i] != undefined, ingredients[i] != undefined)) {
+            const mixDrink = ingredients[i].concat(" " + measurements[i]);
 
             //APPEND THE COMBINED ARRAY TO DRINK NAME
             const ingredientList = $("<li>").text(mixDrink);
             ingredientList.css("text-align", "left");
-            ingredientList.appendTo(drinkName);
+            ingredientList.appendTo(newDiv);
           }
         }
-        //MY LIST GIVE ME "UNDEFINED"!!**
+        //WIP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        //MY LIST GIVES ME "UNDEFINED"!!**
         //END OF LIST CREATION --------------
+
         //DRINK INSTRUCTIONS TITLE
         const instructionsTitle = $("<p>")
           .text("Instructions: ")
           .css("text-align", "left")
           .css("font-weight", "600")
-          .appendTo(drinkName);
+          .appendTo(newDiv);
+
         //DRINK INSTRUCTIONS CONTENT
         const drinkInstructions = $("<p>")
           .text(unpackDrinkDetails.drinks[0].strInstructions)
           .css("text-align", "left")
-          .appendTo(drinkName);
-
-        //LINE BREAK MAINLY FOR ASTETICS
-        const lineBreak = $("<p>").text("__________________");
-        lineBreak
-          .css("text-align", "center")
-          .css("font-weight", "600")
-          .appendTo(drinkInstructions);
+          .appendTo(newDiv);
+        //
       });
-      //
     }
   };
+  //TOGGLE CONTENT
+  $(".showMeTheData").on("click", ".drinkClass", event => {
+    console.log("clicked");
+    console.log($(event.currentTarget));
+    $(event.currentTarget.nextSibling).slideToggle("slow");
+  });
 
   //SEARCH BY ALCOHOL TYPE
   $(".clickSearch").on("click", event => {
@@ -122,7 +137,7 @@ $(() => {
       }
     };
     $.ajax(drinksAPI).then(unpackMyAPI);
-    //THE 2 LINE BELOW CLEAR THE CONTENT BEFORE PLACING MY NEW REQUEST
+    //THE LINE BELOW CLEAR THE CONTENT BEFORE PLACING MY NEW REQUEST
     $(".showMeTheData").html("");
   });
 });
