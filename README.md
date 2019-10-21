@@ -1,4 +1,4 @@
-# SEI Project - Woozy
+# Woozy
 Simple cocktail search engine.
 
 ## Description
