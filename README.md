@@ -15,7 +15,7 @@ The Cocktail DB via [rapidapi.com](https://rapidapi.com/theapiguy/api/the-cockta
 * Lookup full cocktail details by ID
 
 ## Live Site
-[https://g-luperamirez.github.io/WoozyApp/] (https://g-luperamirez.github.io/WoozyApp/)
+[Go to live site!] (https://g-luperamirez.github.io/WoozyApp/)
 
 ## Author(s)
 Guadalupe Ramirez
