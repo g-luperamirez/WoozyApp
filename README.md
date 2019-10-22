@@ -14,8 +14,6 @@ The Cocktail DB via [rapidapi.com](https://rapidapi.com/theapiguy/api/the-cockta
 * Search ingredient by name
 * Lookup full cocktail details by ID
 
-## Approach
-
 ## Challenges
 #### Challenge 1 -
 **API Connection:** Woozy runs with the Cocktail DB (via Rapid API), however, the API requires the connection of different end-points to create a valuable user experience.
@@ -130,8 +128,6 @@ $(".showMeTheData").on("click", ".drinkClass", event => {
     $(event.currentTarget.nextSibling).slideToggle("slow");
 });
 ```
-
-## Improvements
 
 ## Live Site
 https://g-luperamirez.github.io/WoozyApp/
