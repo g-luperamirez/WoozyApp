@@ -136,7 +136,7 @@ $(".showMeTheData").on("click", ".drinkClass", event => {
 ```
 
 ## Live Site
-bit.ly/g-Woozy
+http://bit.ly/g-Woozy
 
 **Note** Site functionality on Safari is tricky.
 
