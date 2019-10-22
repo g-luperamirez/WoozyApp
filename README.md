@@ -36,7 +36,7 @@ https://g-luperamirez.github.io/WoozyApp/
 **Responsiveness:**  
 ![Responsivenes](https://github.com/g-luperamirez/WoozyApp/tree/master/images/responsive.png)
 
-
+![Responsivenes](images/responsive.png)
 ## Author
 Guadalupe Ramirez
 
