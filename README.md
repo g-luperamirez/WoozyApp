@@ -17,7 +17,7 @@ The Cocktail DB via [rapidapi.com](https://rapidapi.com/theapiguy/api/the-cockta
 ## Live Site
 https://g-luperamirez.github.io/WoozyApp/
 
-## Author(s)
+## Author
 Guadalupe Ramirez
 
-## Contributor(s)
+## Contributors
