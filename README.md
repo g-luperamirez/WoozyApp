@@ -26,7 +26,8 @@ The data from the Cocktail DB is organized in various arrays i.e. Cocktail Measu
 
 **Main Struggle:** I was able to concatenate both arrays but I received "undefined" when the measurement and ingredient arrays per drink were not the same length.
 
-```//TOGGLE MY CONTENT
+```javascript
+//TOGGLE MY CONTENT
 $(".showMeTheData").on("click", ".drinkClass", event => {
     console.log("clicked");
     console.log($(event.currentTarget));
