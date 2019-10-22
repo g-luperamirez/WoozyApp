@@ -74,7 +74,7 @@ The Cocktail DB via [rapidapi.com](https://rapidapi.com/theapiguy/api/the-cockta
 **Array Concatenation:** 
 The data from the Cocktail DB is organized in various arrays i.e. Cocktail Measurement is one array and Cocktail Ingredient is another array.  To be able to show the cocktail  ingredients I needed to concatenate both arrays 
 
-**Main Struggle:** I was able to concatenate both arrays but I received "undefined" when the measurement and ingredient arrays per drink were not the same length.
+**Main Struggle:** Combined both arrays but received "undefined" when the measurement and ingredient arrays per drink were not the same length.
 
 ```javascript
 //2. CREATE AN ARRAY OF MEASUREMENTS & PUSH ITEMS INTO IT (ITEMS COME AS SINGLE STRING ITEMS)
@@ -120,6 +120,12 @@ The data from the Cocktail DB is organized in various arrays i.e. Cocktail Measu
  ```
 
 #### Challenge 3 -
+**JQuery Toggle:** 
+A jQuery function I wanted for Woozy users was for them to be able to click on the drink name and have the drink recipe slide down. 
+
+**Main Struggle:**
+Implemented the jQuery slideToggle function, however, the function looped based on the search result count and opened all drink results at once.
+
 ```javascript
 //TOGGLE MY CONTENT
 $(".showMeTheData").on("click", ".drinkClass", event => {
