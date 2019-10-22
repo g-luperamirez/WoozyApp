@@ -24,13 +24,14 @@ $(() => {
         //END OF URL PUSH ----------------------
 
         //STYLE SHOW ME THE DATA DIV
-        $(".showMeTheData").css("padding", "2%");
+        $(".showMeTheData").css("padding", "1% 3% 1% 3%");
 
         //NEW DIV TO APPEND INGREDIENTS AND INSTRUCTIONS
         const newDiv = $("<div>").addClass("hideThis");
 
         //SHOW ME THE DRINK NAME
         const drinkName = $("<h3>").text(apiData.drinks[i].strDrink);
+        drinkName.sort();
         drinkName
           .attr("id", "drinkName")
           .addClass("drinkClass")
@@ -81,7 +82,7 @@ $(() => {
         // singular value
         let mixDrink = "";
         const length = Math.max(ingredients.length, measurements.length);
-        for (let i = 0; i <= length; i++) {
+        for (let i = 0; i <= length - 1; i++) {
           // console.log(ingredients, measurements);
           if (measurements[i] != undefined) {
             console.log(measurements[i]);
@@ -110,6 +111,7 @@ $(() => {
         const drinkInstructions = $("<p>")
           .text(unpackDrinkDetails.drinks[0].strInstructions)
           .css("text-align", "left")
+          .css("line-height", "1.6em")
           .appendTo(newDiv);
         //
       });

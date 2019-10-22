@@ -54,12 +54,12 @@ i {
 }
 .showMeTheData {
   color: black;
-  background-color: rgba(255, 255, 255, 0.742);
+  background-color: rgba(255, 255, 255, 0.85);
   margin: 1% 8% 8% 8%;
 }
 h3 {
   font-size: 15px;
-  padding-bottom: 2%;
+  padding-bottom: 1.5%;
   border-bottom: 1px solid black;
 }
 
