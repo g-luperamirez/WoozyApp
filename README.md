@@ -22,7 +22,7 @@ The Cocktail DB via [rapidapi.com](https://rapidapi.com/theapiguy/api/the-cockta
 
 **Main Struggle:** Getting the recipe end-point to recognize the cocktail IDs without requesting a new key. 
 ```javascript
-//SHOW ME THE DATA
+//SHOW ME THE DATA API
   const unpackMyAPI = apiData => {
     // console.log("API sent", apiData.drinks);
 
@@ -46,7 +46,7 @@ The Cocktail DB via [rapidapi.com](https://rapidapi.com/theapiguy/api/the-cockta
         // console.log(unpackDrinkDetails);
         //END OF URL PUSH ---
 ...
-....
+...
 ...
   //SEARCH BY ALCOHOL TYPE
   $(".clickSearch").on("click", event => {
@@ -68,8 +68,6 @@ The Cocktail DB via [rapidapi.com](https://rapidapi.com/theapiguy/api/the-cockta
       }
     };
     $.ajax(drinksAPI).then(unpackMyAPI);
-    //THE LINE BELOW CLEAR THE CONTENT BEFORE PLACING MY NEW REQUEST
-    $(".showMeTheData").html("");
   });
 ```
 
