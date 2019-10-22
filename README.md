@@ -78,6 +78,49 @@ The data from the Cocktail DB is organized in various arrays i.e. Cocktail Measu
 
 **Main Struggle:** I was able to concatenate both arrays but I received "undefined" when the measurement and ingredient arrays per drink were not the same length.
 
+```javascript
+//2. CREATE AN ARRAY OF MEASUREMENTS & PUSH ITEMS INTO IT (ITEMS COME AS SINGLE STRING ITEMS)
+        const measurements = [];
+        for (properties in unpackDrinkDetails.drinks[0]) {
+          if (
+            properties.includes("strMeasure") &&
+            unpackDrinkDetails.drinks[0][properties]
+          ) {
+            measurements.push(unpackDrinkDetails.drinks[0][properties]);
+          }
+        }
+        //3. CREATE AN ARRAY OF INGREDIENTS & PUSH ITEMS INTO IT (ITEMS COME AS SINGLE STRING ITEMS)
+        const ingredients = [];
+
+        for (properties in unpackDrinkDetails.drinks[0]) {
+          if (
+            properties.includes("strIngredient") &&
+            unpackDrinkDetails.drinks[0][properties]
+          ) {
+            ingredients.push(unpackDrinkDetails.drinks[0][properties]);
+          }
+        }
+
+        //COMBINE INGREDIENTS AND MEASUREMTS ARRAYS
+        //ERROR DUE TO REDEFINING SCOPE (CONST)
+        let mixDrink = "";
+        const length = Math.max(ingredients.length, measurements.length);
+        for (let i = 0; i <= length - 1; i++) {
+          // console.log(ingredients, measurements);
+          if (measurements[i] != undefined) {
+            console.log(measurements[i]);
+            mixDrink = ingredients[i] + " " + measurements[i];
+          } else {
+            mixDrink = ingredients[i];
+          }
+          console.log(mixDrink);
+          //APPEND THE COMBINED STRING TO DRINK NAME/ AUTO HIDE DIV
+          const ingredientList = $("<li>").text(mixDrink);
+          ingredientList.css("text-align", "left");
+          ingredientList.appendTo(newDiv);
+        }
+```
+
 #### Challenge 3 -
 ```javascript
 //TOGGLE MY CONTENT
