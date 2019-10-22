@@ -1,10 +1,10 @@
 $(() => {
-  //SHOW ME THE DATA
+  //SHOW ME THE API DATA
   const unpackMyAPI = apiData => {
     // console.log("API sent", apiData.drinks);
 
     for (let i = 0; i < apiData.drinks.length; i++) {
-      //DRINK ID (NO SHOW) - USED TO PULL INGREDIENTS
+      //DRINK ID (NO SHOW) - USED ONLY TO PULL INGREDIENTS
       const drinkId = apiData.drinks[i].idDrink;
       console.log(drinkId);
 
@@ -20,8 +20,8 @@ $(() => {
         }
       };
       $.ajax(pushIdToURL).done(function(unpackDrinkDetails) {
-        // console.log(unpackDrinkDetails);
-        //END OF URL PUSH ----------------------
+        //console.log(unpackDrinkDetails);
+        //END OF URL PUSH ---
 
         //STYLE SHOW ME THE DATA DIV
         $(".showMeTheData").css("padding", "1% 3% 1% 3%");
@@ -50,7 +50,7 @@ $(() => {
           .css("font-weight", "600")
           .appendTo(newDiv);
 
-        //CODE FOR CREATING A LIST ----------
+        //CODE FOR CREATING A LIST ---
         //1. CREATE UL
         const myUL = $("<ul>").appendTo(newDiv);
 
@@ -77,9 +77,7 @@ $(() => {
         }
 
         //COMBINE INGREDIENTS AND MEASUREMTS ARRAYS
-        //WIP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        // errorrs const scope for redifining
-        // singular value
+        //ERROR DUE TO REDEFINING SCOPE W/ CONST
         let mixDrink = "";
         const length = Math.max(ingredients.length, measurements.length);
         for (let i = 0; i <= length - 1; i++) {
@@ -91,14 +89,12 @@ $(() => {
             mixDrink = ingredients[i];
           }
           console.log(mixDrink);
-          //APPEND THE COMBINED ARRAY TO DRINK NAME
+          //APPEND THE COMBINED STRING TO DRINK NAME/ AUTO HIDE DIV
           const ingredientList = $("<li>").text(mixDrink);
           ingredientList.css("text-align", "left");
           ingredientList.appendTo(newDiv);
         }
-        //WIP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        //MY LIST GIVES ME "UNDEFINED"!!**
-        //END OF LIST CREATION --------------
+        //END OF LIST CREATION ---
 
         //DRINK INSTRUCTIONS TITLE
         const instructionsTitle = $("<p>")
@@ -117,7 +113,7 @@ $(() => {
       });
     }
   };
-  //TOGGLE CONTENT
+  //TOGGLE MY CONTENT
   $(".showMeTheData").on("click", ".drinkClass", event => {
     console.log("clicked");
     console.log($(event.currentTarget));
@@ -144,7 +140,7 @@ $(() => {
       }
     };
     $.ajax(drinksAPI).then(unpackMyAPI);
-    //THE LINE BELOW CLEAR THE CONTENT BEFORE PLACING MY NEW REQUEST
+    //THE LINE BELOW CLEARS THE CONTENT BEFORE ANY NEW REQUEST
     $(".showMeTheData").html("");
   });
 });
