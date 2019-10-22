@@ -21,3 +21,7 @@ https://g-luperamirez.github.io/WoozyApp/
 Guadalupe Ramirez
 
 ## Contributors
+Brian Carroll
+Joem Casusi
+Manny Santana
+
