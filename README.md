@@ -14,6 +14,8 @@ The Cocktail DB via [rapidapi.com](https://rapidapi.com/theapiguy/api/the-cockta
 * Search ingredient by name
 * Lookup full cocktail details by ID
 
+## Approach
+
 ## Live Site
 https://g-luperamirez.github.io/WoozyApp/
 
@@ -21,7 +23,7 @@ https://g-luperamirez.github.io/WoozyApp/
 Guadalupe Ramirez
 
 ## Contributors
-Brian Carroll
-Joem Casusi
-Manny Santana
+* Brian Carroll
+* Joem Casusi
+* Manny Santana
 
