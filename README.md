@@ -33,6 +33,10 @@ https://g-luperamirez.github.io/WoozyApp/
 
 **Note** Site functionality on Safari is tricky.
 
+**Responsiveness:**  
+![Responsivenes](https://github.com/g-luperamirez/WoozyApp/tree/master/images/responsive)
+
+
 ## Author
 Guadalupe Ramirez
 
