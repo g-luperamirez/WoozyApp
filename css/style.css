@@ -19,7 +19,7 @@ body {
   /* Style */
   background-color: rgb(255, 255, 255);
   color: black;
-  height: 200px;
+  height: 160px;
 }
 
 form {
@@ -33,8 +33,9 @@ form {
   box-shadow: 3px 3px rgb(213, 213, 213);
 }
 .searchBoxInput {
-  width: 25em;
-  height: 2.5em;
+  font-size: 2vw;
+  width: 55vw;
+  height: 2vw;
   background-color: transparent; /* Inputbox color*/
   border: none;
 }
@@ -58,12 +59,12 @@ i {
 }
 h3 {
   font-size: 15px;
+  padding-bottom: 2%;
   border-bottom: 1px solid black;
 }
 
 .drinkClass:hover {
   cursor: pointer;
-  background-color: red;
 }
 
 p,
@@ -73,13 +74,14 @@ li {
 }
 
 h1 {
-  font-size: 70px;
+  font-size: 7vw;
   font-weight: 600;
   padding: 0;
   margin: 0;
 }
+
 .fakeSlogan {
-  font-size: 11px;
+  font-size: 1.5vw;
   /* font-weight: 100; */
   text-transform: uppercase;
   padding: 0;
@@ -102,6 +104,21 @@ h1 {
   list-style: none;
 }
 
-.accordionData {
+.hideThis {
+  text-transform: uppercase;
   display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  h1 {
+    font-size: 52px;
+  }
+  .fakeSlogan {
+    font-size: 13px;
+  }
+  .searchBoxInput {
+    font-size: 12px;
+    width: 300px;
+    height: 4px;
+  }
 }

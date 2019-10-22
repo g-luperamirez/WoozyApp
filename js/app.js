@@ -27,7 +27,7 @@ $(() => {
         $(".showMeTheData").css("padding", "2%");
 
         //NEW DIV TO APPEND INGREDIENTS AND INSTRUCTIONS
-        const newDiv = $("<div>").addClass("accordionData");
+        const newDiv = $("<div>").addClass("hideThis");
 
         //SHOW ME THE DRINK NAME
         const drinkName = $("<h3>").text(apiData.drinks[i].strDrink);
@@ -77,17 +77,23 @@ $(() => {
 
         //COMBINE INGREDIENTS AND MEASUREMTS ARRAYS
         //WIP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        const mixDrink = [];
+        // errorrs const scope for redifining
+        // singular value
+        let mixDrink = "";
         const length = Math.max(ingredients.length, measurements.length);
         for (let i = 0; i <= length; i++) {
-          if ((measurements[i] != undefined, ingredients[i] != undefined)) {
-            const mixDrink = ingredients[i].concat(" " + measurements[i]);
-
-            //APPEND THE COMBINED ARRAY TO DRINK NAME
-            const ingredientList = $("<li>").text(mixDrink);
-            ingredientList.css("text-align", "left");
-            ingredientList.appendTo(newDiv);
+          // console.log(ingredients, measurements);
+          if (measurements[i] != undefined) {
+            console.log(measurements[i]);
+            mixDrink = ingredients[i] + " " + measurements[i];
+          } else {
+            mixDrink = ingredients[i];
           }
+          console.log(mixDrink);
+          //APPEND THE COMBINED ARRAY TO DRINK NAME
+          const ingredientList = $("<li>").text(mixDrink);
+          ingredientList.css("text-align", "left");
+          ingredientList.appendTo(newDiv);
         }
         //WIP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         //MY LIST GIVES ME "UNDEFINED"!!**
@@ -119,7 +125,6 @@ $(() => {
   //SEARCH BY ALCOHOL TYPE
   $(".clickSearch").on("click", event => {
     event.preventDefault();
-
     const searchBoxInput = $(".searchBoxInput");
     const searchBoxVal = searchBoxInput.val();
     const filter = `filter.php?i=${searchBoxVal}`;
