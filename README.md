@@ -89,9 +89,9 @@ The data from the Cocktail DB is organized in various arrays i.e. Cocktail Measu
             measurements.push(unpackDrinkDetails.drinks[0][properties]);
           }
         }
+        
         //3. CREATE AN ARRAY OF INGREDIENTS & PUSH ITEMS INTO IT (ITEMS COME AS SINGLE STRING ITEMS)
         const ingredients = [];
-
         for (properties in unpackDrinkDetails.drinks[0]) {
           if (
             properties.includes("strIngredient") &&
@@ -100,9 +100,9 @@ The data from the Cocktail DB is organized in various arrays i.e. Cocktail Measu
             ingredients.push(unpackDrinkDetails.drinks[0][properties]);
           }
         }
-
+        
         //COMBINE INGREDIENTS AND MEASUREMTS ARRAYS
-        //ERROR DUE TO REDEFINING SCOPE (CONST)
+        //ERROR DUE TO REDEFINING SCOPE W/ CONST
         let mixDrink = "";
         const length = Math.max(ingredients.length, measurements.length);
         for (let i = 0; i <= length - 1; i++) {
@@ -118,8 +118,8 @@ The data from the Cocktail DB is organized in various arrays i.e. Cocktail Measu
           const ingredientList = $("<li>").text(mixDrink);
           ingredientList.css("text-align", "left");
           ingredientList.appendTo(newDiv);
-        }
-```
+        } 
+ ```
 
 #### Challenge 3 -
 ```javascript
