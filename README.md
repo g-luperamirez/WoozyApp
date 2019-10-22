@@ -136,7 +136,7 @@ $(".showMeTheData").on("click", ".drinkClass", event => {
 ```
 
 ## Live Site
-https://g-luperamirez.github.io/WoozyApp/
+bit.ly/g-Woozy
 
 **Note** Site functionality on Safari is tricky.
 
